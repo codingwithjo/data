@@ -34,3 +34,26 @@ select data corresponding to features in features names
 ```python
 X = house_price[house_price_features]
 ```
+review data by using ``` .describe() ``` and ``` .head() ```function: 
+print(X.describe()
+print(X.head())
+
+## Specify and fit model:
+first step in building a model is defining the model i.e. what type of model will it be? in this case, i will be using a decision tree:
+```python
+from sklearn.tree import DecisionTreeRegressor
+```
+define the model and specify a number for random_state to ensure same results each run: many ML models allow some randomness in model training therefore specify a number for random_state ensures you get the same results in each run: 
+```python
+house_price_model = DecisionTreeRegressor(random_state= 1)
+```
+fit model: 
+```python
+house_price_model(X, y)
+```
+making predictions using ```.predict()``` function:
+```python
+house_price_model.predict(X)
+print("First in-sample predictions:", house_price_model.predict(X.head()))
+print("Actual target values for those homes:", y.head().tolist())
+```
